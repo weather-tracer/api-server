@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.weathertracer</groupId>
-	<artifactId>apiserver</artifactId>
+	<artifactId>api-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>apiserver</name>
+	<name>api-server</name>
 	<description>API server for weather tracing with Spring Boot</description>
 	<url/>
 	<licenses>
