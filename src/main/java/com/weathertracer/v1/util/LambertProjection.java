@@ -1,5 +1,8 @@
 package com.weathertracer.v1.util;
 
+import com.weathertracer.v1.vo.Gps;
+import com.weathertracer.v1.vo.Location;
+
 /*
  * 기상청에서 제공한 C 소스 코드를 Java 소스 코드로 변환
  */
@@ -34,7 +37,7 @@ public class LambertProjection {
     public static Location ConvertGpsToLocation(Gps gps) {
         LamcParameter map = new LamcParameter();
         double[] result = lamcproj(gps.lon(), gps.lat(), 0, map);
-        return new Location(Math.floor(result[0] + 1.5), Math.floor(result[1] + 1.5));
+        return new Location((int) Math.floor(result[0] + 1.5), (int) Math.floor(result[1] + 1.5));
     }
 
     public static Gps ConvertLocationToGps(Location location) {
@@ -95,11 +98,14 @@ public class LambertProjection {
     }
 
     public static void main(String[] args) {
-        Gps gps1 = new Gps(35.4578833333333, 126.541152777777);
+        double lat = 37.29518064456937;
+        double lon = 127.04065801381438;
+
+        Gps gps1 = new Gps(lat, lon);
         Location loc1 = ConvertGpsToLocation(gps1);
         System.out.println("GPS (" + gps1.lat() + ", " + gps1.lon() + ") to Location: " + loc1);
 
-        Location loc2 = new Location(60, 127);
+        Location loc2 = new Location(loc1.x(), loc1.y());
         Gps gps2 = ConvertLocationToGps(loc2);
         System.out.println("Location (" + loc2.x() + ", " + loc2.y() + ") to GPS: " + gps2);
     }
