@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.weathertracer.v1.constants.Constants;
+import com.weathertracer.v1.constant.Accuweather;
 import com.weathertracer.v1.service.LocationService;
 import com.weathertracer.v1.vo.Location;
 
@@ -28,10 +28,10 @@ public class LocationServiceImpl implements LocationService {
         String query = String.format("%s,%s", lat, lon);
 
         Location location = webClient.get()
-                .uri(UriComponentsBuilder.fromHttpUrl(Constants.BASE_URL + path)
+                .uri(UriComponentsBuilder.fromHttpUrl(Accuweather.BASE_URL + path)
                         .queryParam("apikey", apikey)
                         .queryParam("q", query)
-                        .queryParam("language", Constants.LANGUAGE_KO_KR)
+                        .queryParam("language", Accuweather.LANGUAGE_KO_KR)
                         .build()
                         .toUri())
                 .retrieve()

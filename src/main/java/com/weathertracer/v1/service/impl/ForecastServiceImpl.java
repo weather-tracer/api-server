@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.weathertracer.v1.constants.Constants;
+import com.weathertracer.v1.constant.Accuweather;
 import com.weathertracer.v1.dto.CurrentForecastDto;
 import com.weathertracer.v1.dto.HourlyForecastDto;
 import com.weathertracer.v1.service.ForecastService;
@@ -65,11 +65,11 @@ public class ForecastServiceImpl implements ForecastService {
         String path = "/forecasts/v1/hourly/12hour/" + key;
 
         List<Forecast> forecasts = webClient.get()
-                .uri(UriComponentsBuilder.fromHttpUrl(Constants.BASE_URL + path)
+                .uri(UriComponentsBuilder.fromHttpUrl(Accuweather.BASE_URL + path)
                         .queryParam("apikey", apikey)
                         .queryParam("details", true)
                         .queryParam("metric", true)
-                        .queryParam("language", Constants.LANGUAGE_KO_KR)
+                        .queryParam("language", Accuweather.LANGUAGE_KO_KR)
                         .build()
                         .toUri())
                 .retrieve()
