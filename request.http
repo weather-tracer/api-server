@@ -1,0 +1,15 @@
+### /api/v1/current/location
+@lat = 37.26568758921002
+@lon = 127.0000648245165
+GET http://localhost:8080/api/v1/current/location?lat={{lat}}&lon={{lon}}
+
+
+### /api/v1/current/forecast
+@key = 3430178
+GET http://localhost:8080/api/v1/current/forecast?key={{key}}
+
+
+### /api/v1/current
+@lat = 37.26568758921002
+@lon = 127.0000648245165
+GET http://localhost:8080/api/v1/current?lat={{lat}}&lon={{lon}}

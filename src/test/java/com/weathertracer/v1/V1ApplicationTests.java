@@ -1,10 +1,10 @@
-package com.weathertracer.apiserver;
+package com.weathertracer.v1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiserverApplicationTests {
+class V1ApplicationTests {
 
 	@Test
 	void contextLoads() {
